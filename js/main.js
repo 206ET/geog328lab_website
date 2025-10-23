@@ -1,13 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".counted");
-    sections.forEach((section, i) => section.textContent = `${i + 1}. ${section.textContent}`);
-});
+document.addEventListener("DOMContentLoaded", function () {
+    let sections = document.querySelectorAll("section");
+    let count = 1;
 
-const navLinks = document.querySelectorAll(".navbar a");
-navLinks.forEach(link => {
-    link.addEventListener("click", function () {
-        document.querySelector(".navbar .active").classList.remove("active");
-        this.classList.add("active");
+    sections.forEach(sec => {
+        let h2 = sec.querySelector("h2");
+        if (h2) {
+            h2.innerText = `Section ${count}: ${h2.innerText}`;
+            count++;
+        }
     });
 });
-
